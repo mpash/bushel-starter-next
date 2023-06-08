@@ -1,6 +1,5 @@
 import { ColorMode, useColorMode as useColorModeBase } from '@chakra-ui/react'
 import { useLocalStorageValue } from '@react-hookz/web'
-import { useSession } from 'next-auth/react'
 import {
   createContext,
   ReactNode,
@@ -21,10 +20,9 @@ const ColorModeProviderContext = createContext<ColorModeProviderValues | null>(
 )
 
 export const ColorModeProvider = ({ children }: { children?: ReactNode }) => {
-  const { data: session } = useSession()
   const { value: colorMode, set: setColorMode } = useLocalStorageValue<
     ColorMode | 'auto'
-  >(`settings.colorMode.${session?.user?.bushelId}`, {
+  >('settings.colorMode', {
     defaultValue: 'light',
     initializeWithValue: true,
   })

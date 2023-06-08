@@ -1,4 +1,4 @@
-import { CloseIcon } from '@libraries/chakra/icons'
+import { CloseIcon } from '@chakra/icons'
 import { ModalCloseButton as ModalCloseButtonBase } from '@chakra-ui/react'
 
 const ModalCloseButton = () => (
